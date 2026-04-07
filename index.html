@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BRAND A MULTIBRANDING</title>
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --button-bg: #fff;
+      --button-fg: #000;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      margin: 0 0 1.25rem 0;
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      margin: 0 0 1.5rem 0;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--button-bg);
+      color: var(--button-fg);
+      border: 1px solid currentColor;
+      padding: 0.6rem 1.1rem;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn:active { transform: translateY(1px); }
+    .btn:focus { outline: 3px solid rgba(255,255,255,0.12); outline-offset: 3px; }
+
+    a.livechat-link {
+      color: #00aaff;
+      text-decoration: underline;
+      display: inline-block;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    a.livechat-link:hover {
+      text-decoration: none;
+    }
+
+    #intercom-container, .intercom-lightweight-app, .intercom-launcher-frame {
+      position: fixed !important;
+    }
+
+    .intercom-launcher-badge-count {
+      display: none !important;
+    }
+
+    .intercom-launcher-badge {
+      width: 10px !important;
+      height: 10px !important;
+      min-width: 10px !important;
+      border-radius: 50% !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>
+      <a href="#" class="livechat-link" onclick="openIntercomChat(); return false;">
+        BRAND C MULTIBRANDING
+      </a>
+    </h1>
+    <p>Welcome to Brand A support. Click below to open the messenger.</p>
+    <button class="btn" aria-label="Chat Now" onclick="openIntercomChat()">Chat Now</button>
+    <br>
+  </div>
+
+  <script>
+  window.intercomSettings = {
+    api_base: "https://api-iam.intercom.io",
+    app_id: "ohkvdq68",
+    hide_notifications: true
+  };
+
+  (function () {
+    var w = window;
+    var ic = w.Intercom;
+    if (typeof ic === "function") {
+      ic('reattach_activator');
+      ic('update', w.intercomSettings);
+    } else {
+      var d = document;
+      var i = function () { i.c(arguments); };
+      i.q = [];
+      i.c = function (args) { i.q.push(args); };
+      w.Intercom = i;
+
+      var l = function () {
+        var s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://widget.intercom.io/widget/lu3dtr42';
+        var x = d.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      };
+
+      if (document.readyState === 'complete') {
+        l();
+      } else if (w.attachEvent) {
+        w.attachEvent('onload', l);
+      } else {
+        w.addEventListener('load', l, false);
+      }
+    }
+  })();
+
+  function openIntercomChat() {
+    if (window.Intercom) {
+      window.Intercom('show');
+    } else {
+      console.log('Intercom not loaded yet');
+    }
+  }
+
+  window.addEventListener('load', function () {
+    if (window.Intercom) {
+      window.Intercom('hide');
+    }
+  });
+</script>
+</body>
+</html>
